@@ -1,0 +1,22 @@
+name: Copy to s3
+description: copy files to s3
+
+on: workflow_dispatch
+
+jobs:
+  deployToS3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: fetch files
+        uses: actions/checkout@v6.0.2
+
+      - name: authenticate in aws
+        uses: aws-actions/configure-aws-credentials@v6.0.0
+        with:
+          aws-region: us-east-1
+
+      - name: show env vars
+        run: echo 'printenv'
+        
+          
+  
