@@ -3,6 +3,9 @@ description: copy files to s3
 
 on: workflow_dispatch
 
+permissions:
+  id-token: write
+
 jobs:
   deployToS3:
     runs-on: ubuntu-latest
