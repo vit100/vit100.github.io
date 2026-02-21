@@ -15,7 +15,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v6.0.0
         with:
           aws-region: us-east-1
-        #  role-to-assume: arn:aws:iam::569170436432:role/GitHubActionsDeployRole
+          role-to-assume: arn:aws:iam::569170436432:role/GitHubActionsDeployRole
 
       - name: show env vars
         run: echo 'printenv'
