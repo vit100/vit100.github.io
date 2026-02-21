@@ -11,16 +11,19 @@ jobs:
   deployToS3:
     runs-on: ubuntu-latest
     steps:
-      - name: fetch files
-        uses: actions/checkout@v6.0.2
-
       - name: authenticate in aws
         uses: aws-actions/configure-aws-credentials@v6.0.0
         with:
           aws-region: us-east-1
+          role-to-assume: arn:aws:iam::569170436432:role/GitHubActionsDeployRole
 
       - name: show env vars
         run: echo 'printenv'
+
+      - name: verify aws role
+        run: aws sts get-caller-identity
         
+      - name: fetch files
+        uses: actions/checkout@v6.0.2
           
   
